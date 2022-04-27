@@ -1,0 +1,178 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME -Fish Caring</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="./js/funcoes.js"></script>
+    <link rel="icon" href="imagens/logo.png">
+    <!-- Links para as fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;400&family=Poppins:wght@100;200;400&display=swap"
+        rel="stylesheet">
+
+<body>
+    <header id="header">
+        <div class="container">
+            <img src="imagens/logo.png" alt="">
+
+            <ul class="navbar">
+                <li> <a href="index.html"> Home</a></li>
+                <li><a href="Simulador.html">Simulador Financeiro</a></li>
+                <li> <a href="Sobre.html"> Sobre</a></li>
+                <li><a href="Contato.html">Contato</a></li>
+                <li> <a href="login.html"><img src="imagens/sombra-de-usuario-masculino.png" alt="Cadastrar"
+                            class="icone"></a> </li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="login">
+        <div id="banner">
+
+            <div class="box">
+
+
+                <div class="container">
+
+
+                    <div class="card">
+                       
+                        <h1>Olá, seja bem-vindo</h1>
+
+                        <div class="alerta_erro">
+                            <div class="card_erro" id="cardErro">
+                                <span id="mensagem_erro"></span>
+                            </div>
+                        </div>
+                        
+                        <h4>E-mail</h4>
+                        <input type="text" placeholder="seuemail@exemplo.com" id="email_input">
+                        <h4>Senha</h4>
+                        <input type="password" placeholder="******" id="senha_input">
+                        <p>Não possui conta? <a href="cadastro.html" class="aqui">Clique aqui</a></p>
+
+                        <button class="btn" onclick="entrar()">Entrar</button>
+
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/loading.gif" id="loading-gif">
+                        </div>
+                        <div id="div_erros_login">
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="footer">
+        <div class="container">
+
+
+            <div class="contato">
+                <p><img src="imagens/telefone.png">+55 11 11111-2222</p>
+                <p><img src="imagens/o-email.png">name@sptech.school</p>
+                <p><img src="imagens/pin.png">R. Haddock Lobo </p>
+
+            </div>
+            <img src="imagens/peixe.png" alt="">
+        </div>
+    </div>
+</body>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "dashboard/index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

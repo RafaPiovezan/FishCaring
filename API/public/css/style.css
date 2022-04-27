@@ -1,0 +1,533 @@
+
+/* cores 
+004860
+007690
+00B1CB*/
+
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+#header ul li a.aqui{
+    color: #00B1CB;
+    font-weight: 700;
+}
+.container{
+    width: 80vw;
+    display: flex;
+    margin: auto;
+}
+#header{
+border-bottom:5px solid #004860 ;
+background-color: rgb(245, 245, 245);
+position: fixed;
+z-index: 1000;
+width: 100vw;
+}
+#header .container{
+    justify-content: space-between;
+    width: 90%;
+}
+#header ul{
+   
+    width: fit-content;
+    font-weight:400;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.navbar {
+    width: 300px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#header .container img{
+    width: 70px;
+    margin: 10px;
+}
+#header ul li{
+    margin:0 10px 0 10px;
+
+}
+#header .container .navbar .icone{ 
+   width: 25px;
+}
+#header ul li a{
+    color: #004455;
+}
+
+#banner{
+padding-top: 10vh;
+background-image: url(../imagens/banner.jpg);
+background-size: cover;
+color: #fff;
+height: min-content;   
+border-bottom:5px solid #004860 ;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+#banner .box {
+    background-color: rgba(0, 0, 0, 0.555);
+  
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 1;
+   -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
+    width: 100vw;
+
+   
+
+  }
+
+  #home #banner .box{
+    height: 40vw;
+    
+}
+
+#banner .container{
+
+    width: 95vw;
+    font-size: 25px;
+    justify-content: center;
+ align-items: center;
+ text-align: left;
+
+
+}
+#banner .container div button{
+    margin-top: 350px;
+    padding: 15px;
+
+    color: #000000;
+    font: 400 18px 'Poppins', sans-serif;
+    
+    border-radius: 30px;
+    outline: 0;
+    border: 0;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.616);
+    margin-right: 10px;
+}
+#banner .container div button.aumentar{
+    width: 13vw;
+}
+#banner .container h2{
+    width: 35%;
+    font: 200 25px 'Poppins', sans-serif;;
+   
+   
+}
+#banner .container h2 span{
+    font-weight: bold;
+}
+
+
+#values{
+    margin-top: 4vw;
+    border-bottom:5px solid #004860 ;
+    display: flex;
+}
+#values img{
+    width: 100px;
+}
+#values .container .boxes{
+    display: flex;
+}
+.card{
+  
+    margin-bottom:4vw;
+    display: flex;
+    flex-direction: column;
+
+    width: 20vw;
+    padding: 2vw;
+    align-items: center;
+    margin-left: 2vw;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px ;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+text-align: left;
+  
+}
+
+.card h4{
+    margin-bottom: 2vw;
+    font-weight: 400;
+}
+.azulescuro{
+    background-color: #004455;
+}
+.azulmedio{
+    background-color: #007690;
+}
+.azulclaro{
+background-color: #00B1CB;
+line-height: 2vw;
+}
+
+#footer{
+    background-color: #007690;
+    height: 40vh;
+    display: flex;
+    font: 400 20px 'poppins';
+    color: white;
+    align-items: center;
+}
+#footer .container img{
+    width: 10vw;
+}
+#footer .container{
+    width: 80vw;
+    justify-content: space-between;
+}
+#footer .container .contato img{
+    width: 2vw;
+    margin-right: 10px;
+ 
+}
+#footer .container .contato p{
+    margin-top: 1vw;
+}
+#footer .container .contato{
+    align-items: center;
+   
+    justify-content: center;
+
+}
+
+
+#titulo .container{
+    padding-top: 9vw;
+    color: #004455;
+    font: 400 27px 'poppins';
+display: flex;
+justify-content: center;
+}
+#calculadora{
+    margin-bottom: 5vw;
+}
+#calculadora .container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vw;
+}
+#calculadora .container .campos{
+    width: 35vw;
+    text-align: center;
+    color: #007690;
+    font: 700 20px 'poppins';
+}
+#calculadora .container .campos input{
+    width:35vw;
+height: 7vh;
+margin-bottom: 2vw;
+margin-top: 1vw;
+border-radius: 20px;
+outline:none;
+border:2px solid #007690;
+}
+#calculadora .container .divisao{
+    width: 6px;
+    background-color: #007690;
+    height: 60vh;
+    border-radius: 20%;
+    margin-left: 4vw;
+}
+
+#calculadora .container #resultado{
+    color: #007690;
+    font: 700 20px 'poppins';
+    width: 30vw;
+    text-align: center;
+    margin-left: 6vw;
+}
+
+
+#grupo{
+    padding-top: 10vw;
+    display: flex;
+    color: #004455;
+    text-align: center;
+    font: 700 20px 'poppins';
+justify-content: space-between;
+}
+#grupo .container img{
+    width:500px ;
+}
+#grupo .container p{
+    margin-top: 10vw;
+}
+#grupo .container{
+    width: 90vw;
+}
+#integrantes .container{
+    display: block; 
+    text-align: center;
+    justify-content: center;
+    color: #004455;
+    text-align: center;
+    font: 700 25px 'poppins';
+    margin-top: 5vw;
+}
+#integrantes .container .cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #ffffff;
+   margin-top: 2vw;
+    font: 700 15px 'poppins';
+    margin-bottom: 4vw;
+}
+#integrantes .container .cards .integrante img{
+    width: 70px;
+}
+#integrantes .container .cards .integrante{
+    display: flex;
+    text-align: left;
+    margin: 10px;
+    padding: 1vw;
+    border-radius: 7px;
+    font: 400 15px 'poppins';
+    margin-top: 1vw;
+}
+#integrantes .container .cards .integrante p{
+   margin-top: 15px;
+} 
+
+#contato .container{
+    padding-top: 8vw;
+    text-align: center;
+    justify-content: center;
+}
+#contato .container .contato  input{
+    width: 60vw;
+    padding: 1vw;
+    outline: none;
+    border: 2px solid #0694b4;
+    border-radius: 10px;
+}
+#contato .container .contato select{
+    width: 62.5vw;
+    padding: 1vw;
+    outline: none;
+    border: 2px solid #0694b4;
+    border-radius: 10px;
+}
+#contato .container .contato  select option{
+    font: 400 15px 'poppins';
+    color: #007690;
+}
+#contato p{
+    text-align: left;
+    font: 700 20px 'poppins';
+    color: #007690;
+    margin-top: 2vw;
+    margin-bottom: 10px;
+}
+#contato .container .contato h2{
+
+    font: 700 25px 'poppins';
+    color: #007690;
+    margin-top: 2vw;
+}
+#contato .container{
+    margin: 0 auto;
+}
+.maior{
+    height: 5vw;
+}
+
+#contato .container .contato button{
+
+    width: 10vw;
+    font: 700 20px 'poppins';
+    color: #ffffff;
+    background-color: #007690;
+    margin-top: 3vw;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    margin-bottom: 5vw;
+}
+
+
+
+
+#login #banner .container .card {
+    background-color: rgb(240, 240, 240);
+
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: #004455;
+    align-items: center;
+    border-radius: 4px;
+}
+
+#login #banner .container .card h1 {
+    font-size: 30px;
+    margin-bottom: 1vw;
+}
+
+#login #banner .box{
+    padding-top: 7vw;
+}
+#login #banner .container .card h4 {
+    margin-top:2vw;
+    font-size: 20px;
+}
+#login #banner .container .card p{
+    margin-top: 2vw;
+    font: 400 15px 'poppins';
+}
+#login #banner .container .card p a.aqui{
+    color: #00B1CB;
+}
+#login #banner .container .card input {
+    border: #004455 solid 2px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+}
+
+#login #banner .container .card button {
+
+    height: 50px;
+    background-color: #004455;
+  margin-top: 30px;
+    font: 700 20px monospace;
+    border: 0;
+    border-radius: 7px; 
+    color: #fff;
+    cursor: pointer;
+}
+#login #banner.cadastro .container .card{
+    background-color: rgb(240, 240, 240);
+    height: fit-content;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: #004455;
+    align-items: center;
+    border-radius: 4px;
+    
+}
+#login #banner.cadastro .box{
+    padding-top: 7vw;
+  
+}
+#login #banner.cadastro .card p{
+    margin-top: 1vw;
+}
+#estatisticas{
+    padding-top: 10vw;
+
+}
+#estatisticas .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    
+}
+#estatisticas .container .informacao{
+    width: 20vw;
+    height: 15vh;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font: 400 17px 'poppins';
+}
+.maior{
+    font-size: 25px;
+}
+#diagramas {
+    margin-top: 5vw;
+    text-align: center;
+    font: 400 30px 'poppins';
+    color: #004455;
+}
+#diagramas .container{
+    display:flex;
+    width: 80%;
+    justify-content: space-around;
+
+}
+#diagramas .container section{
+    padding: 1rem;
+}
+.tamanho{
+    width: 33vw;
+    height: 40vh;
+    background-color: #e7e7e7;
+    margin-top: 5vw;
+
+}
+
+#footer.dashboard {
+    margin-top: 5vw;
+}
+
+/*----------------------------- Script -------------------------*/
+
+#div_erros_login {
+margin-top: 1vw;
+color: #004455;
+font: 700 20px 'poppins';
+  }
+
+  .card_erro {
+    display: none;
+    color: #aa0202;
+    margin-top: 1vw;
+    text-align: center;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .formulario .tipo_campo {
+    font-size: 20px;
+    font-weight: 600 !important;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .loading-div {
+ 
+    margin-top: 2vw;
+  display: none;
+  justify-content: center;
+  }
+  
+  .loading-div img {
+   width:20%;
+  }
+  .voltar{
+
+    padding: 10px;
+
+    color: #ffffff;
+    font: 400 18px 'Poppins', sans-serif;
+    background-color: #004860;
+    border-radius: 30px;
+    outline: 0;
+    border: 0;
+    
+  }
