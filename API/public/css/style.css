@@ -116,6 +116,19 @@ align-items: center;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.616);
     margin-right: 10px;
 }
+@media (max-width:800px){
+    #banner .container div button{
+        margin-top: 0;
+    }
+    #banner .container{
+        display: block;
+    }
+  #banner {
+      margin-top: 8vh;
+  }
+
+}
+
 #banner .container div button.aumentar{
     width: 13vw;
 }
@@ -251,7 +264,25 @@ border:2px solid #007690;
     text-align: center;
     margin-left: 6vw;
 }
+#btSimulador{
 
+    height: 50px;
+    background-color: #007690;
+    margin-top: 30px;
+    font: 700 20px monospace;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 0;
+    border-radius: 20px; 
+    color: #fff;
+    cursor: pointer;
+}
+.inpSim{
+    padding-left: 16px;
+    text-align: center;
+    color: #004860;
+    font-weight: bold;
+}
 
 #grupo{
     padding-top: 10vw;
@@ -460,8 +491,47 @@ justify-content: space-between;
 #diagramas .container{
     display:flex;
     width: 80%;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
 
+
+}
+#diagramas .container img{
+    width: 8vw;
+    margin-right: 15vw;
+    margin-top: 3vw;
+    border: 3px solid #004455;
+    border-radius: 100px;
+    padding: 2vw;
+    
+}
+table, tr, td{
+    font: 500 13px 'poppins';
+    border : 2px solid #000000;
+    position: sticky;
+    width: 33vw;
+    
+  
+}
+table td{
+    color: #000000;
+}
+table .p1{
+    background-color:#ff0000;
+}
+table .p2{
+    background-color:#ff7b00;
+}
+table .p3{
+    background-color:#fffb00;
+}
+table .p4{
+    background-color:#2bd102;
+
+}
+table .resultado{
+    color: #000000;
+    background-color: #e7e7e7;
 }
 #diagramas .container section{
     padding: 1rem;
@@ -530,4 +600,24 @@ font: 700 20px 'poppins';
     outline: 0;
     border: 0;
     
+  }
+
+  @media (max-width:800px){
+
+
+
+    #calculadora .container{
+       
+        display: block;
+        width: 100%;
+    }
+    #calculadora .divisao{
+        display: none;
+    }
+#calculadora .container .campos {
+    width: 100%;
+}
+#titulo{
+    margin-top: 12vw;
+}
   }

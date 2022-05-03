@@ -39,24 +39,19 @@
         <div class="container">
             <div class="campos">
                 <p>Quantos tanques de Tilápia você possui? </p>
-                <input type="text" id="tanque">
+                <input class="inpSim" type="number" id="inpTanque">
                 <p>Quantas Tilápias em média por tanque? </p>
-                <input type="text" id="tanque">
-                <p>Quantos tanques de Tilápia você possui? </p>
-                <input type="text" id="tanque">
+                <input class="inpSim" type="number" id="inpTilapia">
+                <p>Lucro das vendas da ultima safra: </p>
+                <input class="inpSim" type="number" id="inpLucro"> <br>
+                <button id="btSimulador" onclick="funcCalcular()">Calcular Ajuste</button>
             </div>
             <div class="divisao">
 
             </div>
             <div id="resultado">
                 <h2>Resultado</h2>
-                <p>Apenas um texto demonstrativo para o resultado que o simulador vai devolver, para não ficar um espaço
-                    em branco</p> <br>
-
-                <p>Apenas um texto demonstrativo para o resultado que o simulador vai devolver, para não ficar um espaço
-                    em branco Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod possimus labore animi, sunt magnam odio eveniet architecto similique quo!</p>
-
-
+                <img src="assets/engrenagem.gif">
             </div>
         </div>
     </div>
@@ -74,3 +69,12 @@
         </div>
     </div>
 </body>
+<script>
+    function funcCalcular() {
+        var tanque = inpTanque.value;
+        var tilapia = inpTilapia.value;
+        var venda = inpLucro.value;
+        var totalLucro = (venda/((tanque * tilapia)*0.7))*((tanque * tilapia)*0.85);
+        resultado.innerHTML = `<h3>Resultado</h3><br><p>Com o sistema FishCaring você terá uma diminuição de aproximadamente 50% das mortes por temperatura, pois contará com um sistema de ponta para leitura, análise e controle de temperatura.</p><br><p>Isso equivale a R$ ${totalLucro.toFixed(2)}</p>`;
+    }
+</script>
