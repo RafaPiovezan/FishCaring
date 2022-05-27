@@ -1,0 +1,2 @@
+depois fazer as validações corretas para cadastro;
+conectar com a azure;
