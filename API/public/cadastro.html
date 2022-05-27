@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AcquaTec | Cadastro</title>
+    <title>Cadastro - Fish Caring</title>
 
 
     <script src="./js/funcoes.js"></script>
@@ -58,13 +58,16 @@
                                 </div>
                             </div>
                          
-                            <h4>Nome:</h4>
-                            <input type="text" placeholder="Nome" id="nome_input">
-                            
+                            <h4>Nome da Empresa:</h4>
+                            <input type="text" placeholder="Empresa" id="nomeEmpresa_input">
+                            <h4>Nome do Responsável:</h4>
+                            <input type="text" placeholder="Nome completo" id="nomeResponsavel_input">
+                            <h4>CNPJ:</h4>
+                            <input type="number" placeholder="Seu CNPJ" id="cnpj_input">
+                            <h4>Telefone:</h4>
+                            <input type="number" placeholder="Telefone" id="telefone_input">
                             <h4>E-mail</h4>
                             <input type="text" placeholder="seuemail@exemplo.com" id="email_input">
-                            <h4>CPF:</h4>
-                            <input type="text" placeholder="Seu CPF" id="CPF_input">
                             <h4>Senha</h4>
                             <input type="password" placeholder="******" id="senha_input">
                             <h4>Confirme sua Senha</h4>
@@ -120,14 +123,15 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         
-        var nomeVar = nome_input.value;
-        var CPFVar = CPF_input.value
+        var nomeEmpresaVar = nomeEmpresa_input.value;
+        var nomeResponsavelVar = nomeResponsavel_input.value;
+        var cnpjVar = cnpj_input.value;
+        var telefoneVar = telefone_input.value;
         var emailVar = email_input.value;
-        
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        if (nomeVar == "" || CPFVar == ""||emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeEmpresaVar == "" || nomeResponsavelVar == "" || cnpjVar == "" || telefoneVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
@@ -167,8 +171,10 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                CPFServer : CPFVar,
+                nomeEmpresaServer: nomeEmpresaVar,
+                nomeResponsavelServer: nomeResponsavelVar,
+                cnpjServer: cnpjVar,
+                telefoneServer: telefoneVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
