@@ -93,12 +93,20 @@ create table Sensor(
     foreign key (fkTanque) references Tanque(idTanque),
     Descricao varchar(80)
 );
-
 create table Monitoramento(
-	idMonitoramento int not null,
+	idMonitoramento int auto_increment,
     fkSensor int not null,
     foreign key (fkSensor) references Sensor(idSensor),
     primary key (idMonitoramento, fkSensor),
     Temperatura decimal (5,2) not null,
     dataHora datetime not null
 );
+insert into Empresa values (null,'teste','teste','12345678901234','1166666666','teste@teste.com','123');
+insert into especie values (null,'tilapia','33','26');
+insert into tanque values (null, 'teste',1,1);
+insert into sensor values (null,1,'teste');
+insert into monitoramento values
+	(null, 1, 30, '2022-05-30 12:25:00'),
+	(null, 1, 32, '2022-05-30 12:26:00'),
+	(null, 1, 26, '2022-05-30 12:27:00')
+;
