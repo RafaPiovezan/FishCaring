@@ -1,0 +1,39 @@
+/* Incluindo bibliotecas dos sensores utilizados */
+#include <DHT.h>
+#include <DHT_U.h>
+#include <Adafruit_Sensor.h>
+#include <DHT.h>
+#include <DHT_U.h>
+#include "DHT.h"
+
+/* definindo e indicando o endereço analógico das portas da placa */
+#define DHTPIN A1
+#define LM35PIN A5
+#define LUMIPIN A0
+#define CHAVPIN 7
+DHT dht(DHTPIN, DHT11);
+
+
+/* Iniciando o Setup e definindo o boundrate */
+void setup()
+{
+  pinMode(DHTPIN, INPUT);
+  pinMode(CHAVPIN, INPUT);
+  Serial.begin(9600);
+  dht.begin();
+}
+
+/* iniciando os comandos que ficaram em loop */
+void loop()
+{
+  /* definindo as variaveis dos sensores de temperatura e umidade */
+  
+/* calculando a temperatura do lm35 e mostrando seus dados */
+  float lm35_temperatura = analogRead(LM35PIN);
+  lm35_temperatura = lm35_temperatura * 0.00488;
+  lm35_temperatura = lm35_temperatura * 100;
+  Serial.print(lm35_temperatura);
+
+  Serial.println();
+  delay(1000);
+}
