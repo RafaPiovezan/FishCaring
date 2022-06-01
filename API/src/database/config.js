@@ -3,34 +3,34 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 
-process.env.AMBIENTE_PROCESSO = 'producao';
+process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
 //process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
 
 
-var sqlServerConfig = {
-     user: "grupo3-1cco",
-     password: "FishCaring3",
-     database: "fishcaring",
-     server: "grupo3-1cco.database.windows.net",
-     pool: {
-         max: 10,
-         min: 0,
-         idleTimeoutMillis: 30000
-     },
-     options: {
-         encrypt: true, // for azure
-     }
- }
+// var sqlServerConfig = {
+//      user: "grupo3-1cco",
+//      password: "FishCaring3",
+//      database: "fishcaring",
+//      server: "grupo3-1cco.database.windows.net",
+//      pool: {
+//          max: 10,
+//          min: 0,
+//          idleTimeoutMillis: 30000
+//      },
+//      options: {
+//          encrypt: true, // for azure
+//      }
+//  }
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
-/*
+
 var mySqlConfig = {
     host: "localhost",
     user: "aluno",
     database: "Fishcaring",
     password: "sptech",
 };
-*/
+
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
