@@ -11,7 +11,7 @@ const HABILITAR_OPERACAO_INSERIR = true;
 // const AMBIENTE = 'desenvolvimento';
 
 // escolha deixar a linha 'producao' descomentada se quiser conectar seu arduino ao banco de dados remoto, SQL Server
-const AMBIENTE = 'desenvolvimento';
+const AMBIENTE = 'producao';
 
 const serial = async (
     valoresLm35Temperatura
@@ -30,6 +30,8 @@ const serial = async (
         ).promise();
     } else if (AMBIENTE == 'producao') {
 
+
+        
         console.log('Projeto rodando inserindo dados em nuvem. Configure as credenciais abaixo.')
 
     } else {
@@ -63,10 +65,10 @@ const serial = async (
 
                 // Este insert irá inserir os dados na tabela "medida" -> altere se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 >> você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO medida (lm35_temperatura, momento, fk_aquario) VALUES (${lm35Temperatura}, CURRENT_TIMESTAMP, 1)`;
+                sqlquery = `INSERT INTO monitoramento (fkSensor, Temperatura, dataHora) VALUES (1, ${lm35Temperatura}, CURRENT_TIMESTAMP)`;
 
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
-                const connStr = "Server=servidor-acquatec.database.windows.net;Database=bd-acquatec;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
+                const connStr = "Server=grupo3-1cco.database.windows.net;Database=fishcaring;User Id=grupo3-1cco;Password=FishCaring3;";
 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
