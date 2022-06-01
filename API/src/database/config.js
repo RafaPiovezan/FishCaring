@@ -3,8 +3,8 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 
-process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
-//process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
+process.env.AMBIENTE_PROCESSO = 'producao';
+// process.env.AMBIENTE_PROCESSO = 'desenvolvimento';
 
 
 var sqlServerConfig = {
