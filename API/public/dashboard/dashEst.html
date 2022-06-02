@@ -325,7 +325,7 @@
             dados.datasets[0].data.shift(); // apagar o primeiro de temperatura
             if(novoRegistro[0].temperatura <30){
               test.style.backgroundColor = "#ff00ff";
-              
+              dados.datasets[0].backgroundColor = "#ff00ff";
             }
              
             dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura0
