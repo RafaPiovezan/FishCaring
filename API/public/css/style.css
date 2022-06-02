@@ -489,11 +489,11 @@ justify-content: space-between;
     color: #004455;
 }
 #diagramas .container{
-    display:flex;
+    display:grid;
     width: 80%;
     justify-content: space-between;
     align-items: center;
-
+grid-template-columns: 1fr 1fr;
 
 }
 #diagramas .container img{
@@ -508,7 +508,7 @@ justify-content: space-between;
 table, tr, td{
     font: 500 13px 'poppins';
     border : 2px solid #000000;
-    position: sticky;
+  margin-left: 2vw;
     width: 33vw;
     
   
