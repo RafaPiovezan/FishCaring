@@ -46,19 +46,19 @@
       <div class="informacao azulescuro">
         <p>
           Tanque com maior temp. <br />
-          <span class="maior">3°</span>
+          <span class="maior">Tanque 4</span>
         </p>
       </div>
       <div class="informacao azulmedio">
         <p>
           Tanque com menor temp. <br />
-          <span class="maior">4°</span>
+          <span class="maior">Tanque 3</span>
         </p>
       </div>
       <div class="informacao azulclaro">  
         <p>
           Tanque com menos alertas <br />
-          <span class="maior">2°</span>
+          <span class="maior">Tanque 2</span>
         </p>
       </div>
     </div>
@@ -83,13 +83,13 @@
             <td class="p1">Critico</td>
           </tr>
           <tr class="resultado">
-            <td>10</td>
-            <td>18</td>
-            <td id="test">25</td>
-            <td>26-32</td>
-            <td>33</td>
-            <td>34</td>
-            <td>35</td>
+            <td id="critico1">10</td>
+            <td id="emergencia1">18</td>
+            <td id="alerta1">25</td>
+            <td id="ideal">26-32</td>
+            <td id="alerta2">33</td>
+            <td id="emergencia2">36</td>
+            <td id="critico2">40</td>
           </tr>
         </table>
       </section>
@@ -110,17 +110,71 @@
       <td class="p1">Critico</td>
     </tr>
     <tr class="resultado">
-      <td>10</td>
-      <td>18</td>
-      <td>25</td>
-      <td>26-32</td>
-      <td>33</td>
-      <td>34</td>
-      <td>35</td>
+      <td id="critico3">10</td>
+      <td id="emergencia3">18</td>
+      <td id="alerta3">25</td>
+      <td id="ideal2">26-32</td>
+      <td id="alerta4">33</td>
+      <td id="emergencia4">36</td>
+      <td id="critico4">40</td>
     </tr>
   </table>
 </section>
   
+<section>
+
+  <div class="graph">
+    <canvas id="canvas_grafico3"></canvas>
+  </div>
+  <table>
+    <tr>
+      <td class="p1">Critico</td>
+      <td class="p2">Emergencia</td>
+      <td class="p3">Alerta</td>
+      <td class="p4">Ideal</td>
+      <td class="p3">Alerta</td>
+      <td class="p2">Emergencia</td>
+      <td class="p1">Critico</td>
+    </tr>
+    <tr class="resultado">
+      <td id="critico5">10</td>
+      <td id="emergencia5">18</td>
+      <td id="alerta5">25</td>
+      <td id="idea3">26-32</td>
+      <td id="alerta6">33</td>
+      <td id="emergencia6">36</td>
+      <td id="critico6">40</td>
+    </tr>
+  </table>
+</section>
+
+
+<section>
+
+  <div class="graph">
+    <canvas id="canvas_grafico4"></canvas>
+  </div>
+  <table>
+    <tr>
+      <td class="p1">Critico</td>
+      <td class="p2">Emergencia</td>
+      <td class="p3">Alerta</td>
+      <td class="p4">Ideal</td>
+      <td class="p3">Alerta</td>
+      <td class="p2">Emergencia</td>
+      <td class="p1">Critico</td>
+    </tr>
+    <tr class="resultado">
+      <td id="critico7">10</td>
+      <td id="emergencia7">18</td>
+      <td id="alerta7">25</td>
+      <td id="idea4">26-32</td>
+      <td id="alerta8">33</td>
+      <td id="emergencia8">36</td>
+      <td id="critico8">40</td>
+    </tr>
+  </table>
+</section>
 
 
    
@@ -128,37 +182,7 @@
   </div>
 </body>
 <script>
-  /*
-  const labels = [
-    '13:00',
-    '14:00',
-    '15:00',
-    '16:00',
-    '17:00',
-    '18:00',
-  ];
- 
-  const data = {
-    labels: labels,
-    datasets: [
-  {
-    label: 'Temperatura',
-      backgroundColor: '#004860',
-      borderColor: '#004860',
-      data: [22,23,25,21,20,24],
-  }]
-  };
-  const config = {
-    type: 'line', 
-    data: data,
-    options: {}
-  };
 
-  const myChart = new Chart(
-    document.getElementById('temperatura'),
-    config 
-  );
-  */
 
   //vannucchi mexeu daqui pra baixo
 
@@ -221,7 +245,35 @@
           yAxisID: "y-temperatura",
           label: "Temperatura",
           borderColor: "#FFF",
-          backgroundColor: "#ff0000",
+          backgroundColor: "#32b9cd8f",
+          fill: true,
+          data: [],
+        },
+      ],
+    };
+    
+    var dados3 = {
+      labels: [],
+      datasets: [
+        {
+          yAxisID: "y-temperatura",
+          label: "Temperatura",
+          borderColor: "#FFF",
+          backgroundColor: "#32b9cd8f",
+          fill: true,
+          data: [],
+        },
+      ],
+    };
+
+    var dados4 = {
+      labels: [],
+      datasets: [
+        {
+          yAxisID: "y-temperatura",
+          label: "Temperatura",
+          borderColor: "#FFF",
+          backgroundColor: "#32b9cd8f",
           fill: true,
           data: [],
         },
@@ -234,6 +286,10 @@
       dados.datasets[0].data.push(registro.temperatura);
       dados2.labels.push(registro.momento_grafico);
       dados2.datasets[0].data.push(registro.temperatura);
+      dados3.labels.push(registro.momento_grafico);
+      dados3.datasets[0].data.push(registro.temperatura);    
+      dados4.labels.push(registro.momento_grafico);
+      dados4.datasets[0].data.push(registro.temperatura);
       console.log(resposta);
     }
 
@@ -298,8 +354,69 @@
         },
       },
     });
+    var ctx3 = canvas_grafico3.getContext("2d");
+    window.grafico_linha3 = Chart.Line(ctx3, {
+      data: dados3,
+      options: {
+        responsive: true,
+        animation: { duration: 500 },
+        hoverMode: "index",
+        stacked: false,
+        title: {
+          display: false,
+          text: "Dados capturados",
+        },
+        scales: {
+          yAxes: [  
+            {
+              type: "linear",
+              display: true,
+              position: "left",
+              id: "y-temperatura",
+              ticks: {
+                beginAtZero: true,
+                max: 100,
+                min: 0,
+              },
+            },
+          ],
+        },
+      },
+    });
+    
+    var ctx4 = canvas_grafico4.getContext("2d");
+    window.grafico_linha4 = Chart.Line(ctx4, {
+      data: dados4,
+      options: {
+        responsive: true,
+        animation: { duration: 500 },
+        hoverMode: "index",
+        stacked: false,
+        title: {
+          display: false,
+          text: "Dados capturados",
+        },
+        scales: {
+          yAxes: [  
+            {
+              type: "linear",
+              display: true,
+              position: "left",
+              id: "y-temperatura",
+              ticks: {
+                beginAtZero: true,
+                max: 100,
+                min: 0,
+              },
+            },
+          ],
+        },
+      },
+    });
     setTimeout(() => atualizarGrafico1(idMonitoramento, dados), 2000);
-    setTimeout(() => atualizarGrafico2( dados2), 2500);
+    setTimeout(() => atualizarGrafico2(dados2), 2500);   
+    setTimeout(() => atualizarGrafico3(dados3), 2500);
+    setTimeout(() => atualizarGrafico4(dados4), 2500);
   }
 
   // só mexer se quiser alterar o tempo de atualização
@@ -323,9 +440,43 @@
              dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 */
             dados.datasets[0].data.shift(); // apagar o primeiro de temperatura
-            if(novoRegistro[0].temperatura <30){
-              test.style.backgroundColor = "#ff00ff";
-              dados.datasets[0].backgroundColor = "#ff00ff";
+            if(novoRegistro[0].temperatura >40){
+          critico2.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+              alerta2.style.backgroundColor = "#fff";
+              emergencia2.style.backgroundColor = "#fff";
+            }else if(novoRegistro[0].temperatura >36 && novoRegistro[0].temperatura <=40){
+              emergencia2.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+              alerta2.style.backgroundColor = "#fff";
+              critico2.style.backgroundColor = "#fff";
+            }
+            else if(novoRegistro[0].temperatura >33 && novoRegistro[0].temperatura <=36){
+              alerta2.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+              critico2.style.backgroundColor = "#fff";
+              emergencia2.style.backgroundColor = "#fff";
+            }
+            else if(novoRegistro[0].temperatura >26 && novoRegistro[0].temperatura <33){
+              ideal.style.backgroundColor = "#2bd102";
+              dados.datasets[0].backgroundColor = "#2bd102";
+
+            }
+            else if(novoRegistro[0].temperatura >18 && novoRegistro[0].temperatura <=26){
+              alerta1.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+              critico1.style.backgroundColor = "#fff";
+              emergencia1.style.backgroundColor = "#fff";
+            } else if(novoRegistro[0].temperatura >10 && novoRegistro[0].temperatura <=18){
+              emergencia1.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+              critico1.style.backgroundColor = "#fff";
+              emergencia1.style.backgroundColor = "#fff";
+            }else{
+              critico1.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+              alerta1.style.backgroundColor = "#fff";
+              emergencia1.style.backgroundColor = "#fff";
             }
              
             dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura0
@@ -363,7 +514,31 @@
     dados.datasets[0].data.shift(); // apagar o primeiro de umidade
      dados.datasets[0].data.push(aleatorio); // incluir uma nova medida de umidade
 
-
+     if(aleatorio >40){
+          critico4.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+            }else if(aleatorio >36 && aleatorio <=40){
+              emergencia4.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+            }
+            else if(aleatorio >33 && aleatorio <=36){
+              alerta4.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+            }
+            else if(aleatorio >26 && aleatorio <33){
+              ideal2.style.backgroundColor = "#2bd102";
+              dados.datasets[0].backgroundColor = "#2bd102";
+            }
+            else if(aleatorio >18 && aleatorio <=26){
+              alerta3.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+            } else if(aleatorio >10 && aleatorio <=18){
+              emergencia3.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+            }else{
+              critico3.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+            }
 
     window.grafico_linha2.update();
 
@@ -373,6 +548,115 @@
       2000
     );
   }
+
+  function atualizarGrafico3(dados) {
+
+    var  aleatorio2  = ((Math.random()*15)+4).toFixed(2);
+    console.log (aleatorio2);
+// tirando e colocando valores no gráfico
+dados.labels.shift(); // apagar o primeiro
+dados.labels.push(hora); // incluir um novo momento
+
+dados.datasets[0].data.shift(); // apagar o primeiro de umidade
+ dados.datasets[0].data.push(aleatorio2); // incluir uma nova medida de umidade
+
+ if(aleatorio2 >40){
+          critico6.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+             
+            }else if(aleatorio2 >36 && aleatorio2 <=40){
+              emergencia6.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+              
+            }
+            else if(aleatorio2 >33 && aleatorio2 <=36){
+              alerta6.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+        
+            }
+            else if(aleatorio2 >26 && aleatorio2 <33){
+              ideal3.style.backgroundColor = "#2bd102";
+              dados.datasets[0].backgroundColor = "#2bd102";
+            }
+            else if(aleatorio2 >18 && aleatorio2 <=26){
+              alerta5.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+              critico5.style.backgroundColor = "#fff";
+              emergencia5.style.backgroundColor = "#fff";
+            } else if(aleatorio2 >10 && aleatorio2 <=18){
+              emergencia5.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+              critico5.style.backgroundColor = "#fff";
+              alerta5.style.backgroundColor = "#fff";
+            }else{
+              critico5.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+              emergencia5.style.backgroundColor = "#fff";
+              alerta5.style.backgroundColor = "#fff";
+            }
+
+window.grafico_linha3.update();
+
+// Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+proximaAtualizacao = setTimeout(
+  () => atualizarGrafico3(dados),
+  2000
+);
+}
+function atualizarGrafico4(dados) {
+
+var  aleatorio3  = ((Math.random()*8)+ 33).toFixed(2);
+// tirando e colocando valores no gráfico
+dados.labels.shift(); // apagar o primeiro
+dados.labels.push(hora); // incluir um novo momento
+
+dados.datasets[0].data.shift(); // apagar o primeiro de umidade
+dados.datasets[0].data.push(aleatorio3); // incluir uma nova medida de umidade
+
+if(aleatorio3 >40){
+          critico8.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+              emergencia8.style.backgroundColor = "#fff";
+              alerta8.style.backgroundColor = "#fff";
+            }else if(aleatorio3 >36 && aleatorio3 <=40){
+              emergencia8.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+              critico8.style.backgroundColor = "#fff";
+              alerta8.style.backgroundColor = "#fff";
+            }
+            else if(aleatorio3 >33 && aleatorio3 <=36){
+              alerta8.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+              critico8.style.backgroundColor = "#fff";
+              emergencia8.style.backgroundColor = "#fff";
+            }
+            else if(aleatorio3 >26 && aleatorio3 <33){
+              ideal4.style.backgroundColor = "#2bd102";
+              dados.datasets[0].backgroundColor = "#2bd102";
+            }
+            else if(aleatorio3 >18 && aleatorio3 <=26){
+              alerta7.style.backgroundColor = "#fffb00";
+              dados.datasets[0].backgroundColor = "#fffb00";
+           
+            } else if(aleatorio3 >10 && aleatorio3 <=18){
+              emergencia7.style.backgroundColor = "#ff7b00";
+              dados.datasets[0].backgroundColor = "#ff7b00";
+           
+            }else{
+              critico7.style.backgroundColor = "#ff0000";
+              dados.datasets[0].backgroundColor = "#ff0000";
+             
+            }
+
+
+window.grafico_linha4.update();
+
+// Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+proximaAtualizacao = setTimeout(
+() => atualizarGrafico4(dados),
+2000
+);
+}
 
 </script>
 
