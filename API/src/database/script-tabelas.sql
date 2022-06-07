@@ -114,50 +114,50 @@ insert into monitoramento values
 -- fishcaring azure
 create table Empresa(
 	idEmpresa int primary key identity(1,1),
-    NomeEmpresa varchar(45) not null,
-    NomeResponsavel varchar(45) not null,
-    CNPJ char(14) not null,
+    NomeEmpresa varchar(45),
+    NomeResponsavel varchar(45),
+    CNPJ char(14),
     Telefone char(11),
-    Email varchar(60) not null,
-    Senha varchar(30) not null
+    Email varchar(60),
+    Senha varchar(30)
 );
 
 create table Especie(
 	idEspecie int primary key identity(1,1),
     nomeEspecie varchar(80),
-    tempMax decimal(5,2) not null,
-    tempMin decimal(5,2) not null
+    tempMax decimal(5,2),
+    tempMin decimal(5,2)
 );
 
 create table Tanque(
 	idTanque int primary key identity(1,1),
     Identificador varchar(255),
-    fkEmpresa int not null,
+    fkEmpresa int,
     foreign key (fkEmpresa) references Empresa(idEmpresa),
-    fkEspecie int not null,
+    fkEspecie int,
     foreign key (fkEspecie) references Especie(idEspecie)
 );
 
 
 create table Sensor(
 	idSensor int primary key identity(1,1),
-    fkTanque int not null,
+    fkTanque int,
     foreign key (fkTanque) references Tanque(idTanque),
     Descricao varchar(80)
 );
 
 create table Monitoramento(
 	idMonitoramento int identity(1,1),
-    fkSensor int not null,
+    fkSensor int,
     foreign key (fkSensor) references Sensor(idSensor),
     primary key (idMonitoramento, fkSensor),
-    Temperatura decimal (5,2) not null,
-    dataHora datetime not null
+    Temperatura decimal (5,2),
+    dataHora datetime
 );
 insert into [dbo].[Empresa] (NomeEmpresa,NomeResponsavel,CNPJ, Telefone, Email, Senha) values ('teste','teste','12345678901234','1166666666','teste@teste.com','123');
 insert into [dbo].[Especie] (nomeEspecie,tempMax,tempMin) values ('tilapia','33','26');
-insert into [dbo].[Tanque] (Identificador, fkEmpresa, fkEspecie) values ('teste',1,1);
-insert into [dbo].[Sensor] (fkTanque,Descricao) values (1,'teste');
+insert into [dbo].[Tanque] (Identificador, fkEmpresa, fkEspecie) values ('Tanque Leste',1,1);
+insert into [dbo].[Sensor] (fkTanque,Descricao) values (1,'Sensor Geral');
 
 insert into [dbo].[Monitoramento] (fkSensor,Temperatura,dataHora) values
 	(1, 32, '2022-05-30 12:25:00'),
